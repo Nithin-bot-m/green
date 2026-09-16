@@ -1,12 +1,18 @@
 import type { NextConfig } from "next";
 
+const isGithubActions = process.env.GITHUB_ACTIONS || false;
+let basePath = "";
+if (isGithubActions) {
+  const repo = process.env.GITHUB_REPOSITORY?.replace(/.*?\//, "");
+  basePath = `/${repo}`;
+}
+
 const nextConfig: NextConfig = {
-  output: "standalone",
-  // Pin the project root so builds work no matter where the project folder
-  // lives (prevents Next from inferring a parent dir as the workspace root
-  // when other lockfiles exist above it, which would misplace the
-  // standalone server.js). Builds always run from the project root,
-  // so process.cwd() is the project directory.
+  output: "export",
+  basePath: basePath,
+  images: {
+    unoptimized: true,
+  },
   turbopack: { root: process.cwd() },
   outputFileTracingRoot: process.cwd(),
   typescript: {
