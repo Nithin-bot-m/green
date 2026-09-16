@@ -1,5 +1,7 @@
 # Greenroots Training & Placements — Website
 
+> 🔗 **Live Website**: [https://nithin-bot-m.github.io/green/](https://nithin-bot-m.github.io/green/)
+
 A 8-page marketing website for **Greenroots Technology Training Institute** (Kukatpally, Hyderabad), built with **Next.js 16 + React 19 + Tailwind CSS 4**.
 
 All page content (programs, stats, reviews, CRT, study-abroad, trainer application, contact) lives in a single source-of-truth file — `src/lib/content.ts`. Enquiry and application forms compose pre-filled WhatsApp deep links (same behavior as the original site), so **no backend or database is required to run the site**.
@@ -75,9 +77,11 @@ Example with pm2:
 pm2 start "node .next/standalone/server.js" --name greenroots --time
 ```
 
-### Static-ish hosts (GitHub Pages etc.)
+### GitHub Pages
 
-This site uses server features (route metadata, standalone server), so it is **not** a static export. Use any Node-capable host from the list above — most have a free tier.
+The site is configured for static export and automatically deployed via GitHub Actions:
+- **Live URL**: [https://nithin-bot-m.github.io/green/](https://nithin-bot-m.github.io/green/)
+- Workflow file: `.github/workflows/deploy.yml` (triggers on push to `main`)
 
 ## Editing content
 
