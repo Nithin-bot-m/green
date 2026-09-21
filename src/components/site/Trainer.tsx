@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { TRAINER, CONTACT } from "@/lib/content";
 import { Reveal, ChapterHead, Marker, ArrowLink } from "./primitives";
 
@@ -32,7 +33,7 @@ export default function Trainer() {
     "w-full border-b border-line bg-transparent px-0 py-3 text-[15px] text-ink outline-none transition-colors placeholder:text-ink-mute/70 focus:border-leaf";
 
   return (
-    <section id="teach" className="relative py-24 md:py-36">
+    <section id="teach" className="relative py-20 md:py-32">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <ChapterHead
           numeral="CH. VI"
@@ -47,10 +48,10 @@ export default function Trainer() {
         />
 
         {/* Trainer stats */}
-        <Reveal delay={200} className="mt-12 flex flex-wrap gap-px border border-line bg-line">
+        <Reveal delay={200} className="mt-12 flex flex-wrap gap-px border border-line bg-line shadow-sm">
           {TRAINER.heroStats.map((s) => (
-            <div key={s.label} className="min-w-[140px] flex-1 bg-paper px-5 py-6">
-              <p className="font-display text-2xl font-semibold text-ink md:text-3xl">
+            <div key={s.label} className="min-w-[140px] flex-1 bg-paper px-6 py-6">
+              <p className="font-display text-2xl font-bold text-ink md:text-3xl">
                 {s.num}
               </p>
               <p className="mt-1.5 font-mono text-[9.5px] uppercase tracking-[0.2em] text-ink-mute">
@@ -58,6 +59,50 @@ export default function Trainer() {
               </p>
             </div>
           ))}
+        </Reveal>
+
+        {/* Faculty Spotlight Card */}
+        <Reveal delay={250} className="mt-12 overflow-hidden border border-line bg-paper shadow-sm">
+          <div className="grid grid-cols-1 items-center md:grid-cols-12">
+            <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-line md:col-span-5 md:aspect-auto md:h-full md:border-b-0 md:border-r">
+              <Image
+                src="/assets/images/mentor-kiran.webp"
+                alt="Kiran - Senior Power BI & Analytics Trainer at Greenroots"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-night/80 via-transparent to-transparent md:bg-gradient-to-r" />
+              <div className="absolute bottom-4 left-4 right-4 text-paper">
+                <span className="stamp bg-leaf text-[9px] font-semibold uppercase tracking-wider text-paper">
+                  Active Faculty Mentor
+                </span>
+                <p className="mt-1 font-display text-lg font-bold text-paper">
+                  Kiran · Power BI & Analytics Track Lead
+                </p>
+                <p className="font-mono text-[9.5px] uppercase tracking-wider text-night-mute">
+                  Corporate Trainer · Real Enterprise Dashboards
+                </p>
+              </div>
+            </div>
+
+            <div className="p-8 md:col-span-7 md:p-10">
+              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-marigold">
+                Join Our Teaching Ecosystem
+              </span>
+              <h3 className="mt-3 font-display text-2xl font-bold text-ink sm:text-3xl">
+                Share Your 10+ Years of Craft With the Next Generation of Engineers
+              </h3>
+              <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">
+                At Greenroots, you don&apos;t worry about batch marketing, sales leads, student billing, or classroom infrastructure. You focus 100% on high-impact mentorship, code review, and shaping careers while earning premium hourly or revenue-share compensation.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-4 font-mono text-[10.5px] uppercase tracking-wider text-ink">
+                <span className="bg-paper-deep px-3 py-1 border border-line">Weekend & Evening Slots</span>
+                <span className="bg-paper-deep px-3 py-1 border border-line">Offline Labs & Live Zoom</span>
+                <span className="bg-paper-deep px-3 py-1 border border-line">Zero Admin Overhead</span>
+              </div>
+            </div>
+          </div>
         </Reveal>
 
         {/* 3 profiles */}
@@ -393,7 +438,7 @@ export default function Trainer() {
                     </p>
                     <button
                       type="submit"
-                      className="arrow-slide group inline-flex border border-ink bg-ink px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-colors duration-300 hover:bg-transparent hover:text-ink"
+                      className="arrow-slide group inline-flex items-center gap-3 border border-ink bg-ink px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-all duration-300 hover:bg-ember hover:border-ember"
                     >
                       <span className="arrow-slide-label">Apply to Join Us</span>
                       <span className="arrow-slide-icon" aria-hidden>

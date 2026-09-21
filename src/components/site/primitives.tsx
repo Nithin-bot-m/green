@@ -10,13 +10,13 @@ import {
 import Link from "next/link";
 
 /* ── useInView: IntersectionObserver hook ──────────────────── */
-export function useInView<T extends HTMLElement>(threshold = 0.2) {
+export function useInView<T extends HTMLElement>(threshold = 0.1) {
   const ref = useRef<T | null>(null);
-  const [inView, setInView] = useState(false);
+  const [inView, setInView] = useState(true);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || typeof IntersectionObserver === "undefined") return;
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -26,7 +26,7 @@ export function useInView<T extends HTMLElement>(threshold = 0.2) {
           }
         });
       },
-      { threshold, rootMargin: "0px 0px -8% 0px" }
+      { threshold, rootMargin: "60px 0px 60px 0px" }
     );
     io.observe(el);
     return () => io.disconnect();

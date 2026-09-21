@@ -4,6 +4,7 @@ import tailwindcssAnimate from "tailwindcss-animate";
 const config: Config = {
     darkMode: "class",
     content: [
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,6 +12,35 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+  			ember: {
+  				DEFAULT: '#ff5b22',
+  				deep: '#e04610',
+  				light: '#ff7d4d',
+  			},
+  			marigold: {
+  				DEFAULT: '#ff5b22',
+  				deep: '#e04610',
+  			},
+  			leaf: {
+  				DEFAULT: '#1a7a46',
+  				bright: '#27ae60',
+  			},
+  			paper: {
+  				DEFAULT: '#fbfaf6',
+  				deep: '#f3efe6',
+  				card: '#ffffff',
+  			},
+  			ink: {
+  				DEFAULT: '#0a2920',
+  				soft: '#28443b',
+  				mute: '#547065',
+  			},
+  			night: {
+  				DEFAULT: '#082018',
+  				deep: '#051510',
+  				ink: '#fbfaf6',
+  				mute: '#91aba0',
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

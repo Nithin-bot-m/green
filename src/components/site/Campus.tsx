@@ -160,7 +160,7 @@ export default function Campus() {
           ))}
         </Reveal>
 
-        {/* About + academy */}
+        {/* About + academy + Real Campus Video */}
         <div className="mt-20 grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-6">
             <h3 className="font-display text-[clamp(1.6rem,3vw,2.3rem)] font-semibold leading-tight text-ink">
@@ -172,13 +172,42 @@ export default function Campus() {
               </p>
             </Reveal>
             <Reveal delay={250} className="mt-8 border border-line bg-paper p-6">
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-marigold">
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-ember">
                 {CRT.visionTitle}
               </p>
               <p className="mt-2 font-display text-lg font-medium leading-snug text-ink">
                 {CRT.visionBody}
               </p>
             </Reveal>
+
+            {/* Video preview: Live Classroom Training */}
+            <div className="mt-8 overflow-hidden border border-line bg-night shadow-md">
+              <div className="relative aspect-[16/9] w-full">
+                <video
+                  src="/assets/video/classroom-training.mp4"
+                  poster="/assets/video/classroom-training-poster.webp"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-night/80 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-paper">
+                  <div>
+                    <span className="stamp bg-leaf text-[9px] font-semibold uppercase tracking-wider text-paper">
+                      Live Campus Session
+                    </span>
+                    <p className="mt-1 font-mono text-[11px] font-medium text-paper">
+                      Technical Training Lab · Kukatpally Center
+                    </p>
+                  </div>
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-paper/20 backdrop-blur-sm text-paper font-mono text-[10px]">
+                    ▶
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="lg:col-span-6">
@@ -186,7 +215,7 @@ export default function Campus() {
               <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-night-mute">
                 {CRT.academyTitle}
               </p>
-              <p className="mt-6 font-mono text-[9.5px] uppercase tracking-[0.25em] text-marigold">
+              <p className="mt-6 font-mono text-[9.5px] uppercase tracking-[0.25em] text-ember">
                 {CRT.academySub}
               </p>
               <ul className="mt-3">
@@ -374,11 +403,11 @@ export default function Campus() {
               </div>
               <div className="mt-8">
                 <ArrowLink
-                  href={CONTACT.whatsapp}
+                  href="https://wa.me/919989823438?text=Hi%20Greenroots%2C%20we%20are%20interested%20in%20exploring%20a%20Campus%20Recruitment%20Training%20%28CRT%29%20partnership%20for%20our%20college."
                   external
-                  className="border border-ink bg-ink px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-colors duration-300 hover:bg-transparent hover:text-ink"
+                  className="border border-ink bg-ink px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-all duration-300 hover:bg-ember hover:border-ember"
                 >
-                  Partner With Us
+                  Partner With Us via WhatsApp
                 </ArrowLink>
               </div>
             </div>

@@ -15,6 +15,13 @@ const nextConfig: NextConfig = {
   },
   turbopack: { root: process.cwd() },
   outputFileTracingRoot: process.cwd(),
+  allowedDevOrigins: [
+    "*.trycloudflare.com",
+    "publish-magnitude-prix-stated.trycloudflare.com",
+    "*.loca.lt",
+    "localhost:3000",
+    "127.0.0.1:3000",
+  ],
   typescript: {
     ignoreBuildErrors: true,
   },

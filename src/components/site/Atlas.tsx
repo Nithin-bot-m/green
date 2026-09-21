@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ABROAD, CONTACT } from "@/lib/content";
 import { Reveal, ChapterHead, ArrowLink } from "./primitives";
 
@@ -77,11 +78,11 @@ export default function Atlas() {
         {/* SIG partnership */}
         <div className="mt-20 grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Reveal className="border border-line bg-paper-card p-7 md:p-9">
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-ink-mute">
-                Our Education Partner
+            <Reveal className="border border-line bg-paper-card p-7 md:p-9 shadow-sm">
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-ember">
+                Our Overseas Education Partner
               </p>
-              <h3 className="mt-4 font-display text-2xl font-semibold leading-snug md:text-[1.8rem]">
+              <h3 className="mt-4 font-display text-2xl font-bold leading-snug md:text-[1.8rem]">
                 {ABROAD.partnerTitle}
               </h3>
               <p className="mt-4 text-[14px] leading-relaxed text-ink-soft">
@@ -90,12 +91,32 @@ export default function Atlas() {
               <div className="mt-7 grid grid-cols-2 gap-px border border-line bg-line">
                 {ABROAD.partnerStats.map((s) => (
                   <div key={s.label} className="bg-paper px-4 py-4">
-                    <p className="font-display text-2xl font-semibold">{s.num}</p>
+                    <p className="font-display text-2xl font-bold text-ink">{s.num}</p>
                     <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.16em] text-ink-mute">
                       {s.label}
                     </p>
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-7 flex items-center gap-4 border-t border-line-soft pt-5">
+                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-marigold/60 shadow-sm">
+                  <Image
+                    src="/assets/images/counselor-portrait.webp"
+                    alt="Overseas Education Counselor"
+                    fill
+                    sizes="60px"
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div>
+                  <p className="font-display text-sm font-bold text-ink">
+                    1-on-1 Visa & University Advisory
+                  </p>
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-ember">
+                    Unit 204, Manjeera Majestic · Kukatpally
+                  </p>
+                </div>
               </div>
             </Reveal>
           </div>
@@ -337,7 +358,7 @@ export default function Atlas() {
                     </p>
                     <button
                       type="submit"
-                      className="arrow-slide group inline-flex border border-ink bg-ink px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-colors duration-300 hover:bg-transparent hover:text-ink"
+                      className="arrow-slide group inline-flex items-center gap-3 border border-ink bg-ink px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-all duration-300 hover:bg-ember hover:border-ember"
                     >
                       <span className="arrow-slide-label">Request Counselling Call</span>
                       <span className="arrow-slide-icon" aria-hidden>

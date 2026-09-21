@@ -1,44 +1,50 @@
 @import "tailwindcss";
 
 /* ════════════════════════════════════════════════════════════
-   GREENROOTS · "THE GROWTH LEDGER"
-   A botanical-editorial design language.
-   Paper · forest ink · leaf · marigold stamp.
+   GREENROOTS · THE MODERN EDITORIAL SYSTEM
+   Architectural alabaster · Obsidian Forest · Ember Orange · Emerald Vitality
    ════════════════════════════════════════════════════════════ */
 
 @theme inline {
-  /* Palette — paper & ink */
-  --color-paper: #f6f2e7;
-  --color-paper-deep: #ede7d4;
-  --color-paper-card: #faf7ee;
-  --color-ink: #0b3d2e;
-  --color-ink-soft: #33544a;
-  --color-ink-mute: #5c7268;
-  --color-leaf: #2e7d4f;
-  --color-leaf-bright: #47935f;
-  --color-marigold: #c47b2a;
-  --color-marigold-deep: #a55f1d;
-  --color-clay: #b4552d;
-  --color-line: rgba(11, 61, 46, 0.16);
-  --color-line-soft: rgba(11, 61, 46, 0.09);
-  --color-night: #0b3d2e;
-  --color-night-deep: #082e22;
-  --color-night-ink: #e9e4d2;
-  --color-night-mute: #9db3a6;
-  --color-night-line: rgba(233, 228, 210, 0.16);
+  /* Core Brand Palette */
+  --color-paper: #fbfaf6;
+  --color-paper-deep: #f3efe6;
+  --color-paper-card: #ffffff;
+  --color-ink: #0a2920;
+  --color-ink-soft: #28443b;
+  --color-ink-mute: #547065;
+  --color-leaf: #1a7a46;
+  --color-leaf-bright: #27ae60;
+  --color-marigold: #ff5b22;
+  --color-marigold-deep: #e04610;
+  --color-ember: #ff5b22;
+  --color-ember-deep: #e04610;
+  --color-ember-light: #ff7d4d;
+  --color-clay: #c84317;
+  
+  --color-line: rgba(10, 41, 32, 0.11);
+  --color-line-soft: rgba(10, 41, 32, 0.06);
+  
+  /* Dark / Night Mode Palette */
+  --color-night: #082018;
+  --color-night-deep: #051510;
+  --color-night-ink: #fbfaf6;
+  --color-night-mute: #91aba0;
+  --color-night-line: rgba(251, 250, 246, 0.12);
 
-  /* Type */
+  /* Typography */
   --font-display: var(--font-display), "Georgia", serif;
-  --font-body: var(--font-body), "Helvetica Neue", sans-serif;
+  --font-body: var(--font-body), "Helvetica Neue", -apple-system, sans-serif;
   --font-mono: var(--font-mono), "Courier New", monospace;
 }
 
 :root {
-  --grain-opacity: 0.05;
+  --grain-opacity: 0.035;
 }
 
 html {
   scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -46,15 +52,16 @@ body {
   color: var(--color-ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--color-leaf);
-  color: var(--color-paper);
+  background: var(--color-marigold);
+  color: #ffffff;
 }
 
-/* ── Paper grain (subtle SVG noise over whole page) ─────────── */
+/* ── Subtle architectural grain texture ─────────── */
 .paper-grain::before {
   content: "";
   position: fixed;
@@ -62,25 +69,25 @@ body {
   z-index: 60;
   pointer-events: none;
   opacity: var(--grain-opacity);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ── Ruled ledger lines (background) ────────────────────────── */
+/* ── Architectural precision lines ────────────────────────── */
 .ledger-lines {
   background-image: repeating-linear-gradient(
     to bottom,
     transparent 0,
-    transparent 35px,
-    var(--color-line-soft) 35px,
-    var(--color-line-soft) 36px
+    transparent 47px,
+    var(--color-line-soft) 47px,
+    var(--color-line-soft) 48px
   );
 }
 
 /* ════════════════════════════════════════════════════════════
-   EFFECT LIBRARY — curated selections
+   INTERACTION & MOTION SYSTEM
    ════════════════════════════════════════════════════════════ */
 
-/* [87] MARKER HIGHLIGHT — draws across text like a marker pen */
+/* Marker Highlight */
 .marker {
   position: relative;
   white-space: nowrap;
@@ -89,20 +96,20 @@ body {
 .marker::after {
   content: "";
   position: absolute;
-  left: -0.12em;
-  right: -0.12em;
+  left: -0.15em;
+  right: -0.15em;
   bottom: 0.06em;
-  height: 0.42em;
+  height: 0.44em;
   background: linear-gradient(
     100deg,
-    rgba(196, 123, 42, 0.55),
-    rgba(196, 123, 42, 0.32)
+    rgba(255, 91, 34, 0.35),
+    rgba(255, 91, 34, 0.18)
   );
   z-index: -1;
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 0.7s cubic-bezier(0.65, 0, 0.25, 1) 0.35s;
-  border-radius: 2px;
+  transition: transform 0.7s cubic-bezier(0.65, 0, 0.25, 1) 0.3s;
+  border-radius: 3px;
 }
 .marker.is-visible::after {
   transform: scaleX(1);
@@ -110,12 +117,12 @@ body {
 .marker--leaf::after {
   background: linear-gradient(
     100deg,
-    rgba(46, 125, 79, 0.42),
-    rgba(46, 125, 79, 0.25)
+    rgba(26, 122, 70, 0.32),
+    rgba(26, 122, 70, 0.16)
   );
 }
 
-/* [83] FADE WORD CYCLE — rotating words in hero */
+/* Word Cycle */
 .word-cycle {
   display: inline-grid;
   vertical-align: bottom;
@@ -124,10 +131,10 @@ body {
 .word-cycle > span {
   grid-area: 1 / 1;
   opacity: 0;
-  transform: translateY(0.6em);
+  transform: translateY(0.7em);
   transition:
-    opacity 0.55s ease,
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.5s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   white-space: nowrap;
 }
 .word-cycle > span.is-active {
@@ -136,74 +143,10 @@ body {
 }
 .word-cycle > span.is-leaving {
   opacity: 0;
-  transform: translateY(-0.6em);
+  transform: translateY(-0.7em);
 }
 
-/* [5] BORDER TRACE — ink line traces perimeter on hover */
-.trace {
-  position: relative;
-}
-.trace::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(to right, var(--color-ink) 50%, transparent 50%) top left /
-    200% 1.5px no-repeat,
-    linear-gradient(to bottom, var(--color-ink) 50%, transparent 50%) top right /
-      1.5px 200% no-repeat,
-    linear-gradient(to left, var(--color-ink) 50%, transparent 50%) bottom right /
-      200% 1.5px no-repeat,
-    linear-gradient(to top, var(--color-ink) 50%, transparent 50%) bottom left /
-      1.5px 200% no-repeat;
-  opacity: 0;
-  transition: opacity 0s;
-}
-.trace:hover::after {
-  opacity: 1;
-  animation: trace-run 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-}
-@keyframes trace-run {
-  0% {
-    background-size: 200% 1.5px, 1.5px 200%, 200% 1.5px, 1.5px 200%;
-    background-position: top left, top right, bottom right, bottom left;
-  }
-  50% {
-    background-size: 100% 1.5px, 1.5px 200%, 200% 1.5px, 1.5px 200%;
-  }
-  100% {
-    background-size: 100% 1.5px, 1.5px 100%, 100% 1.5px, 1.5px 100%;
-    background-position: top left, top right, bottom right, bottom left;
-  }
-}
-
-/* [97/40] ARROW SLIDE — text slides left, arrow slides in */
-.arrow-slide {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  overflow: hidden;
-}
-.arrow-slide .arrow-slide-label {
-  display: inline-block;
-  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
-}
-.arrow-slide .arrow-slide-icon {
-  position: absolute;
-  right: 0;
-  transform: translateX(140%);
-  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
-  display: inline-flex;
-}
-.arrow-slide:hover .arrow-slide-label {
-  transform: translateX(-1.4em);
-}
-.arrow-slide:hover .arrow-slide-icon {
-  transform: translateX(0);
-}
-
-/* [27] SLIDING UNDERLINE — nav links */
+/* Sliding Underline */
 .u-slide {
   position: relative;
 }
@@ -217,14 +160,39 @@ body {
   background: currentColor;
   transform: scaleX(0);
   transform-origin: right center;
-  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
 }
 .u-slide:hover::after {
   transform: scaleX(1);
   transform-origin: left center;
 }
 
-/* [34] FLOATING LABEL INPUT */
+/* Arrow Slide Button */
+.arrow-slide {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+}
+.arrow-slide .arrow-slide-label {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.arrow-slide .arrow-slide-icon {
+  position: absolute;
+  right: 0;
+  transform: translateX(140%);
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  display: inline-flex;
+}
+.arrow-slide:hover .arrow-slide-label {
+  transform: translateX(-1.4em);
+}
+.arrow-slide:hover .arrow-slide-icon {
+  transform: translateX(0);
+}
+
+/* Floating Label Inputs */
 .f-label {
   position: relative;
   display: block;
@@ -236,7 +204,7 @@ body {
   background: transparent;
   border: 0;
   border-bottom: 1.5px solid var(--color-line);
-  padding: 1.35rem 0 0.5rem;
+  padding: 1.25rem 0 0.5rem;
   font-size: 0.95rem;
   color: var(--color-ink);
   outline: none;
@@ -246,7 +214,7 @@ body {
 .f-label input:focus,
 .f-label textarea:focus,
 .f-label select:focus {
-  border-color: var(--color-leaf);
+  border-color: var(--color-marigold);
 }
 .f-label label {
   position: absolute;
@@ -255,7 +223,7 @@ body {
   font-size: 0.95rem;
   color: var(--color-ink-mute);
   pointer-events: none;
-  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .f-label input:focus + label,
 .f-label input:not(:placeholder-shown) + label,
@@ -263,19 +231,19 @@ body {
 .f-label textarea:not(:placeholder-shown) + label,
 .f-label select:valid + label {
   top: 0;
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-leaf);
+  color: var(--color-marigold);
   font-family: var(--font-mono);
 }
 .f-label .focus-line {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 1.5px;
+  height: 2px;
   width: 100%;
-  background: var(--color-leaf);
+  background: var(--color-marigold);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
@@ -286,55 +254,13 @@ body {
   transform: scaleX(1);
 }
 
-/* [75] MASK REVEAL — headlines sweep in */
+/* Mask Reveal */
 .mask-reveal {
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 1s cubic-bezier(0.65, 0, 0.25, 1);
-}
-.mask-reveal.is-visible {
   clip-path: inset(0 0 0 0);
+  transition: clip-path 0.8s cubic-bezier(0.65, 0, 0.25, 1);
 }
 
-/* [76] STUCK NOTE — field note cards lift + tilt on hover */
-.stuck-note {
-  transition:
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.5s ease;
-}
-.stuck-note:hover {
-  transform: rotate(0deg) translateY(-8px) !important;
-  box-shadow: 0 18px 40px -12px rgba(11, 61, 46, 0.28);
-}
-
-/* [91] STACK REVEAL — paper stack under cards on hover */
-.stack-reveal {
-  position: relative;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.stack-reveal::before,
-.stack-reveal::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--color-paper-deep);
-  border: 1px solid var(--color-line-soft);
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-  z-index: -1;
-}
-.stack-reveal::before {
-  transform: rotate(-1.6deg);
-}
-.stack-reveal::after {
-  transform: rotate(1.2deg);
-}
-.stack-reveal:hover::before {
-  transform: rotate(-3.4deg) translate(-4px, 3px);
-}
-.stack-reveal:hover::after {
-  transform: rotate(2.8deg) translate(4px, 3px);
-}
-
-/* Marquee — letterpress partner strip */
+/* Marquee Track */
 @keyframes marquee-x {
   from {
     transform: translateX(0);
@@ -346,19 +272,19 @@ body {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-x 42s linear infinite;
+  animation: marquee-x 36s linear infinite;
 }
 .marquee-track:hover {
   animation-play-state: paused;
 }
 
-/* Scroll-drawn roots (SVG stroke) */
+/* Scroll-drawn Roots / Lines */
 .root-draw path,
 .root-draw line,
 .root-draw circle {
   stroke-dasharray: var(--dash, 1200);
   stroke-dashoffset: var(--dash, 1200);
-  transition: stroke-dashoffset 2.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: stroke-dashoffset 2.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .root-draw.is-visible path,
 .root-draw.is-visible line,
@@ -366,58 +292,90 @@ body {
   stroke-dashoffset: 0;
 }
 
-/* Reveal-on-scroll primitives */
+/* Reveal Primitives - fail-safe progressive enhancement (never renders blank) */
 .rv {
-  opacity: 0;
-  transform: translateY(26px);
+  opacity: 1;
+  transform: none;
   transition:
-    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .rv.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 .rv-l {
-  opacity: 0;
-  transform: translateX(-32px);
+  opacity: 1;
+  transform: none;
   transition:
-    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .rv-l.is-visible {
   opacity: 1;
   transform: translateX(0);
 }
 .rv-r {
-  opacity: 0;
-  transform: translateX(32px);
+  opacity: 1;
+  transform: none;
   transition:
-    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .rv-r.is-visible {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Ink stamp */
+/* Ink Stamp */
 .stamp {
   font-family: var(--font-mono);
   border: 1.5px solid currentColor;
   border-radius: 3px;
-  padding: 0.2rem 0.55rem;
+  padding: 0.25rem 0.65rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  transform: rotate(-2deg);
+  transform: rotate(-1.5deg);
   display: inline-block;
 }
 
-/* Specimen row expansion */
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(10, 41, 32, 0.22);
+  border-radius: 4px;
+  border: 2px solid var(--color-paper-deep);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-soft);
+}
+
+/* Soft Route Transition */
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.page-enter {
+  animation: page-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Editorial Specimen Row */
 .specimen-body {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.65s cubic-bezier(0.65, 0, 0.25, 1);
+  transition: grid-template-rows 0.5s cubic-bezier(0.65, 0, 0.25, 1);
 }
 .specimen-body > div {
   overflow: hidden;
@@ -426,52 +384,43 @@ body {
   grid-template-rows: 1fr;
 }
 .specimen-row .specimen-chevron {
-  transition: transform 0.5s cubic-bezier(0.65, 0, 0.25, 1);
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.25, 1);
 }
 .specimen-row.is-open .specimen-chevron {
   transform: rotate(45deg);
 }
 
-/* Ink dashed connector */
-.ink-dash {
-  background-image: linear-gradient(
-    to right,
-    var(--color-ink-mute) 45%,
-    transparent 45%
-  );
-  background-size: 8px 1px;
-  background-repeat: repeat-x;
+/* Glassmorphism & Elevated Elements */
+.glass-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(10, 41, 32, 0.10);
+  box-shadow: 0 20px 40px -15px rgba(10, 41, 32, 0.07);
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-paper-deep);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-ink-soft);
-  border-radius: 0;
-  border: 2px solid var(--color-paper-deep);
+.dark-glass-card {
+  background: rgba(8, 32, 24, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(251, 250, 246, 0.14);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
 }
 
-/* ── Page transition — soft fade between routes ─────────────── */
-@keyframes page-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+/* Video Reel Container */
+.video-reel-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -15px rgba(10, 41, 32, 0.25);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
 }
-.page-enter {
-  animation: page-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+.video-reel-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px -15px rgba(10, 41, 32, 0.35);
 }
 
-/* ── Reduced motion ─────────────────────────────────────────── */
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -482,20 +431,11 @@ body {
   .page-enter {
     animation: none;
   }
-  .root-draw path,
-  .root-draw line,
-  .root-draw circle {
-    stroke-dashoffset: 0 !important;
-    transition: none;
-  }
-  .rv,
-  .rv-l,
-  .rv-r,
-  .mask-reveal {
+  .rv, .rv-l, .rv-r, .mask-reveal {
     opacity: 1 !important;
     transform: none !important;
     clip-path: none !important;
-    transition: none;
+    transition: none !important;
   }
   .word-cycle > span {
     transition: none;
@@ -504,88 +444,4 @@ body {
     transition: none;
     transform: scaleX(1);
   }
-}
-
-/* ── Custom field cursor ──────────────────────────────────────
-   Native cursor is retired only when JS confirms a fine pointer
-   (html[data-cursor="on"]). The arrow's palette re-inks itself to
-   the theme beneath the pointer; colors cross-fade via stop-color
-   transitions on the SVG gradient stops.                       */
-html[data-cursor="on"],
-html[data-cursor="on"] * {
-  cursor: none !important;
-}
-
-.cursor-root {
-  /* paper theme (default) */
-  --cc-a: #c47b2a; /* marigold */
-  --cc-b: #2e7d4f; /* leaf */
-  --cc-s: #f6f2e7; /* paper stripe */
-  --cc-o: #0b3d2e; /* ink outline */
-
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  will-change: transform;
-}
-.cursor-root.is-on {
-  opacity: 1;
-}
-
-/* night theme — bright fills, ink stripe reads as a cut-through,
-   outline lifts to night-ink so the arrow stays crisp on dark */
-.cursor-root[data-bg="night"] {
-  --cc-a: #47935f; /* leaf-bright */
-  --cc-b: #c47b2a; /* marigold */
-  --cc-s: #0b3d2e; /* ink stripe */
-  --cc-o: #e9e4d2; /* night-ink outline */
-}
-
-/* over links & buttons: swap to clay × leaf-bright and swell */
-.cursor-root[data-mode="link"] {
-  --cc-a: #b4552d; /* clay */
-  --cc-b: #47935f; /* leaf-bright */
-}
-
-/* over form fields: quiet monochrome, shrunk */
-.cursor-root[data-mode="text"] {
-  --cc-a: #5c7268; /* ink-mute */
-  --cc-b: #33544a; /* ink-soft */
-}
-
-.cursor-glyph {
-  /* pivot on the arrow tip (30.975px, 25.725px of the 42px glyph)
-     so tilt/scale keep the hotspot pinned to the pointer */
-  transform-origin: 73.75% 61.25%;
-  will-change: transform;
-  filter: drop-shadow(0 2px 5px rgba(11, 61, 46, 0.25));
-}
-/* kill inline-SVG baseline whitespace — keeps the glyph box exactly
-   42px so the transform-origin percentages hit the true tip */
-.cursor-glyph svg {
-  display: block;
-}
-.cursor-root[data-mode="link"] .cursor-glyph {
-  filter: drop-shadow(0 3px 9px rgba(11, 61, 46, 0.32));
-}
-
-.cursor-stroke {
-  stroke: var(--cc-o);
-  transition: stroke 0.32s ease;
-}
-.cursor-stop-a {
-  stop-color: var(--cc-a);
-  transition: stop-color 0.32s ease;
-}
-.cursor-stop-b {
-  stop-color: var(--cc-b);
-  transition: stop-color 0.32s ease;
-}
-.cursor-stop-s {
-  stop-color: var(--cc-s);
-  transition: stop-color 0.32s ease;
 }

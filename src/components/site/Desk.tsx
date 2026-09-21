@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { CONTACT_SECTION, CONTACT, COURSE_OPTIONS, STATUS_OPTIONS, SOCIAL } from "@/lib/content";
 import { Reveal, ChapterHead, ArrowLink } from "./primitives";
 
@@ -31,12 +32,12 @@ export default function Desk() {
   const infoRows = [
     { label: CONTACT_SECTION.infoLabels.phone, value: CONTACT.phoneDisplay, href: CONTACT.phoneHref },
     { label: CONTACT_SECTION.infoLabels.website, value: "grootstechnologies.com", href: "https://grootstechnologies.com" },
-    { label: CONTACT_SECTION.infoLabels.address, value: CONTACT.address, href: undefined },
+    { label: CONTACT_SECTION.infoLabels.address, value: CONTACT.address, href: "https://maps.google.com/?q=Manjeera+Majestic+Commercial+Kukatpally+Hyderabad" },
     { label: CONTACT_SECTION.infoLabels.hours, value: CONTACT.hours, href: undefined },
   ];
 
   return (
-    <section id="desk" className="relative bg-paper-deep py-24 md:py-36">
+    <section id="desk" className="relative bg-paper-deep py-20 md:py-32">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <ChapterHead
           numeral="CH. VII"
@@ -48,7 +49,7 @@ export default function Desk() {
         <div className="mt-14 grid grid-cols-1 gap-14 lg:grid-cols-12">
           {/* Info ledger */}
           <div className="lg:col-span-5">
-            <Reveal className="border border-line bg-paper-card">
+            <Reveal className="border border-line bg-paper shadow-sm">
               {infoRows.map((row, i) => (
                 <div
                   key={row.label}
@@ -64,12 +65,12 @@ export default function Desk() {
                       href={row.href}
                       target={row.href.startsWith("http") ? "_blank" : undefined}
                       rel={row.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="font-display text-[17px] font-medium leading-snug text-ink underline decoration-line underline-offset-4 transition-colors hover:text-leaf hover:decoration-leaf"
+                      className="font-display text-[16px] font-semibold leading-snug text-ink underline decoration-line underline-offset-4 transition-colors hover:text-ember hover:decoration-ember"
                     >
                       {row.value}
                     </a>
                   ) : (
-                    <span className="font-display text-[17px] font-medium leading-snug text-ink">
+                    <span className="font-display text-[16px] font-semibold leading-snug text-ink">
                       {row.value}
                     </span>
                   )}
@@ -77,11 +78,37 @@ export default function Desk() {
               ))}
             </Reveal>
 
-            <Reveal delay={150} className="mt-6">
+            {/* In-Person Visit Spotlight Card */}
+            <Reveal delay={120} className="mt-6 overflow-hidden border border-line bg-paper p-6 shadow-sm">
+              <div className="flex items-center gap-4">
+                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-marigold/60 shadow-sm">
+                  <Image
+                    src="/assets/images/counselor-portrait.webp"
+                    alt="Senior Academic Advisor at Greenroots Kukatpally"
+                    fill
+                    sizes="70px"
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div>
+                  <p className="font-display text-base font-bold text-ink">
+                    Walk In for Live Career Audit
+                  </p>
+                  <p className="font-mono text-[10.5px] uppercase tracking-wider text-ember">
+                    Unit 204, Manjeera Majestic Commercial
+                  </p>
+                  <p className="mt-0.5 text-[12.5px] text-ink-soft">
+                    Opposite JNTU Metro, Kukatpally · Hyderabad
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={180} className="mt-6">
               <ArrowLink
                 href={CONTACT.whatsappPrograms}
                 external
-                className="border border-ink bg-ink w-full justify-center px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-colors duration-300 hover:bg-transparent hover:text-ink"
+                className="w-full justify-center border border-ink bg-ink px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-all duration-300 hover:bg-ember hover:border-ember"
               >
                 {CONTACT_SECTION.whatsappCta}
               </ArrowLink>
@@ -90,7 +117,7 @@ export default function Desk() {
             {/* Social */}
             <Reveal delay={250} className="mt-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-ink-mute">
-                Follow the journal
+                Follow Greenroots Online
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
                 {[
@@ -103,7 +130,7 @@ export default function Desk() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="u-slide font-mono text-[11px] uppercase tracking-[0.18em] text-ink"
+                    className="border border-line bg-paper px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:border-ember hover:text-ember"
                   >
                     {s.name} ↗
                   </a>
@@ -209,7 +236,7 @@ export default function Desk() {
                     </p>
                     <button
                       type="submit"
-                      className="arrow-slide group inline-flex border border-ink bg-ink px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-colors duration-300 hover:bg-transparent hover:text-ink"
+                      className="arrow-slide group inline-flex items-center gap-3 border border-ink bg-ink px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-all duration-300 hover:bg-ember hover:border-ember"
                     >
                       <span className="arrow-slide-label">Send an Enquiry</span>
                       <span className="arrow-slide-icon" aria-hidden>

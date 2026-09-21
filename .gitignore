@@ -52,3 +52,7 @@ prompt
 server.log
 # Skills directory
 /skills/
+
+# Raw archives and processing directories
+*.zip
+raw_assets/
