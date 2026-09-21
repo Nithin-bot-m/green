@@ -445,3 +445,82 @@ body {
     transform: scaleX(1);
   }
 }
+
+/* ── Custom branded field cursor ──────────────────────────────
+   Native cursor is hidden only when JS confirms fine pointer.
+   SVG gradient stops animate smoothly across themes.            */
+html[data-cursor="on"],
+html[data-cursor="on"] * {
+  cursor: none !important;
+}
+
+.cursor-root {
+  /* paper theme (default) */
+  --cc-a: #ff5b22; /* brand orange/ember */
+  --cc-b: #1a7a46; /* brand leaf green */
+  --cc-s: #fbfaf6; /* crisp paper stripe */
+  --cc-o: #0a2920; /* dark forest ink outline */
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  will-change: transform;
+}
+.cursor-root.is-on {
+  opacity: 1;
+}
+
+/* night theme — bright fills, ink stripe reads as a cut-through,
+   outline lifts to night-ink so the arrow stays crisp on dark */
+.cursor-root[data-bg="night"] {
+  --cc-a: #27ae60; /* leaf-bright */
+  --cc-b: #ff5b22; /* orange */
+  --cc-s: #082018; /* night stripe */
+  --cc-o: #fbfaf6; /* light outline */
+}
+
+/* over links & buttons: swap to ember × leaf-bright and swell */
+.cursor-root[data-mode="link"] {
+  --cc-a: #ff5b22;
+  --cc-b: #27ae60;
+}
+
+/* over form fields: quiet monochrome, shrunk */
+.cursor-root[data-mode="text"] {
+  --cc-a: #547065;
+  --cc-b: #28443b;
+}
+
+.cursor-glyph {
+  transform-origin: 73.75% 61.25%;
+  will-change: transform;
+  filter: drop-shadow(0 3px 6px rgba(10, 41, 32, 0.28));
+}
+.cursor-glyph svg {
+  display: block;
+}
+.cursor-root[data-mode="link"] .cursor-glyph {
+  filter: drop-shadow(0 4px 12px rgba(255, 91, 34, 0.35));
+}
+
+.cursor-stroke {
+  stroke: var(--cc-o);
+  transition: stroke 0.3s ease;
+}
+.cursor-stop-a {
+  stop-color: var(--cc-a);
+  transition: stop-color 0.3s ease;
+}
+.cursor-stop-b {
+  stop-color: var(--cc-b);
+  transition: stop-color 0.3s ease;
+}
+.cursor-stop-s {
+  stop-color: var(--cc-s);
+  transition: stop-color 0.3s ease;
+}
+
